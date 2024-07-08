@@ -25,8 +25,10 @@ if (flutterVersionName == null) {
 
 android {
     namespace = "com.example.flutter_geolocator"
-    compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+    // compileSdk = flutter.compileSdkVersion
+    compileSdk = localProperties.getProperty('flutter.compileSdk').toInteger()
+    // ndkVersion = flutter.ndkVersion
+    ndkVersion = localProperties.getProperty('flutter.ndkVersion')
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -38,8 +40,10 @@ android {
         applicationId = "com.example.flutter_geolocator"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
-        minSdk = flutter.minSdkVersion
-        targetSdk = flutter.targetSdkVersion
+        // minSdk = flutter.minSdkVersion
+        minSdk = localProperties.getProperty('flutter.minSdk').toInteger()
+        // targetSdk = flutter.targetSdkVersion
+        targetSdk = localProperties.getProperty('flutter.targetSdk').toInteger()
         versionCode = flutterVersionCode.toInteger()
         versionName = flutterVersionName
     }
